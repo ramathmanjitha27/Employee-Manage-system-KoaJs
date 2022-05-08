@@ -1,6 +1,7 @@
 const UUID = require('uuid');
 
 const data = new Map();
+console.log('Api called');
 
 const addEmployee = ({name, age, salary}) =>{
     const employee = {
