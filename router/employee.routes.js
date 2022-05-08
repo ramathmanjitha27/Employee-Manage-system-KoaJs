@@ -1,8 +1,6 @@
 const Router = require('koa-router');
-const {getEmployees, addEmployee} = require("../api/employee.api");
+const {getEmployees, addEmployee, getEmployee} = require("../api/employee.api");
 
-
-console.log('Routes called');
 const router = new Router({
     prefix: '/employee'
 })
@@ -18,5 +16,11 @@ router.get('/',ctx => {
     ctx.body = getEmployees();
 })
 
-
+router.get('/:id', ctx =>{
+    const id= ctx.params.id;
+    ctx.body = getEmployee(id);
+})
 module.exports = router;
+
+
+

@@ -1,10 +1,10 @@
-const UUID = require('uuid');
-
+const { v4 : uuid } = require('uuid');
 const data = new Map();
 
 const addEmployee = ({name, age, salary}) =>{
+    const id = uuid();
     const employee = {
-        id : new UUID.v4(),
+        id,
         name,
         age,
         salary
@@ -16,4 +16,8 @@ const getEmployees = () => {
     return [...data.values()];
 }
 
-module.exports = {addEmployee, getEmployees};
+const getEmployee = (id)=>{
+    return data.get(id);
+}
+
+module.exports = {addEmployee, getEmployees, getEmployee};
