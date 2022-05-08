@@ -1,7 +1,6 @@
 const UUID = require('uuid');
 
 const data = new Map();
-console.log('Api called');
 
 const addEmployee = ({name, age, salary}) =>{
     const employee = {
@@ -13,4 +12,8 @@ const addEmployee = ({name, age, salary}) =>{
     data.set(employee.id, employee)
 }
 
-module.exports = addEmployee;
+const getEmployees = () => {
+    return [...data.values()];
+}
+
+module.exports = {addEmployee, getEmployees};

@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const addEmployee = require('../api/employee.api')
+const {getEmployees, addEmployee} = require("../api/employee.api");
 
 
 console.log('Routes called');
@@ -13,5 +13,10 @@ router.post('/',ctx => {
     ctx.response.status = 201;
     ctx.body = employee;
 })
+
+router.get('/',ctx => {
+    ctx.body = getEmployees();
+})
+
 
 module.exports = router;
